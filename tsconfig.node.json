@@ -1,0 +1,28 @@
+  {
+    "compilerOptions": {
+      "target": "ES2022",                      // Ensure modern JavaScript features are supported
+      "lib": ["ES2023"],                        // Use the latest ECMAScript library
+      "module": "ESNext",                       // Use ES modules
+      "skipLibCheck": true,                     // Skip type checking for library files for faster compilation
+
+      /* Bundler Mode */
+      "moduleResolution": "bundler",            // Resolve modules like a bundler (Vite, Webpack)
+      "allowImportingTsExtensions": true,       // Allow importing `.ts` extensions
+      "isolatedModules": true,                  // Treat each file as a separate module
+      "moduleDetection": "force",               // Force files to be treated as modules
+      "noEmit": true,                           // Do not emit any files (use with bundlers)
+
+      /* Linting */
+      "strict": true,                           // Enable strict mode for TypeScript
+      "noUnusedLocals": false,                  // Disable unused local check
+      "noUnusedParameters": false,              // Disable unused parameter check
+      "noFallthroughCasesInSwitch": false       // Disable fallthrough case in switch warning (optional)
+    },
+    "include": [
+      "vite.config.ts",                         // Include Vite config file
+      "jest.setup.ts"                           // Include Jest setup file (if present)
+    ],
+    "exclude": [
+      "node_modules"                            // Exclude `node_modules`
+    ]
+  }
