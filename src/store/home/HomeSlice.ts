@@ -98,21 +98,6 @@ const HomePageSlice = createSlice({
         state.loading = false;
         action.error.message ?? null;
       })
-
-      // Delete Inventory by Id
-      .addCase(deleteInventoryById.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(deleteInventoryById.fulfilled, (state, action) => {
-        state.loading = false;
-        const inventory:any = state.inventory ?? [];
-        state.inventory = inventory.filter((item:any) => item.id !== action.payload.id);
-      })
-      .addCase(deleteInventoryById.rejected, (state, action) => {
-        state.loading = false;
-        action.error.message ?? null;
-      })
-
       // Add Products
       .addCase(addProducts.pending, (state) => {
         state.loading = true;

@@ -10,11 +10,11 @@ import InvestorTable from "../../../components/Tables/PortfolioTable/InvestorTab
 import ResidenceModal from "../../LayOutPages/Opportunities/Components/ResidenceModal";
 import { useDispatch } from "react-redux";
 import { ThunkDispatch } from "@reduxjs/toolkit";
-import { addNewInventory, deleteInventoryById, getAllInventoryItems } from "../../../store/home/HomeAction";
+import { addNewInventory, deleteInventoryById, getAllInventoryItems, getWarehouseList } from "../../../store/home/HomeAction";
 import { useHomePageSelector } from "../../../hooks/selectors/useSelectorHook";
 import DropDown from "../../../components/Header/DropDown";
 import Modal from "../../../components/Modals/Modal";
-import SingleDataCard from "../Investments/table/card";
+import SingleDataCard from "../Items/table/card";
 
 const defaultValues = {
   itemSize: "",
@@ -37,8 +37,15 @@ const Home = () => {
     setIsModalOpen(!isModalOpen);
   };
 
+  const action = () => {
+    dispatch(getAllInventoryItems());
+  };
+
   const handleDelete = (id:any)=>{
-    dispatch(deleteInventoryById(id))
+    dispatch(deleteInventoryById({
+      id:id,
+      extra:{action:action}
+    }))
   }
 
   const itemTypeData = [
@@ -354,10 +361,10 @@ const Home = () => {
                 </div>
 
                 <>
-                  <InvestorTable
+                 {products && products.length > 0 ? <InvestorTable
                     tableHeader={InvestmentHeader}
                     tableBody={data}
-                  />
+                  /> : <div>No Data Found</div>}
                 </>
               </div>
             </InnerLayOut>

@@ -19,6 +19,7 @@ import { useHomePageSelector } from "../../../hooks/selectors/useSelectorHook";
 import Modal from "../../../components/Modals/Modal";
 import SingleDataCard from "./table/card";
 
+
 const defaultValues = {
   itemName: "",
 };
@@ -27,6 +28,7 @@ const Investments = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { products, productById } = useHomePageSelector();
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+
   let productType = {
     productTypeId: 1,
   };
@@ -175,7 +177,7 @@ const Investments = () => {
         supplier={true}
       >
         <div className="flex flex-col justify-center items-center">
-         <SingleDataCard columns={ShowColumns} rows={singledata}/>
+          <SingleDataCard columns={ShowColumns} rows={singledata} />
         </div>
       </Modal>
     </>

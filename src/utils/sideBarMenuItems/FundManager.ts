@@ -2,9 +2,9 @@ import {
   DocumentIcon,
   HomeIcon,
 } from "../../assets/sideBarIcons/sideBarIcons";
-import Home from "../../pages/FundManager/Home.tsx/Home";
-import Investments from "../../pages/FundManager/Investments/Investments";
-import Investor from "../../pages/FundManager/Investors/Investor";
+import Home from "../../pages/Views/Inventory.tsx";
+import Investments from "../../pages/Views/Items";
+import Investor from "../../pages/Views/warehouse";
 
 
 export const FundManagerScreens = [

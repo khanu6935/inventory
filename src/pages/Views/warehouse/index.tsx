@@ -120,7 +120,7 @@ const Investor = () => {
             <div className="w-full flex  justify-center flex-col">
               <div className="px-6 pb-6">
                 <h2 className="text-textPrimary font-poppins font-bold text-xxl leading-10">
-                  Add Item
+                  Add Warehouse
                 </h2>
                 <form onSubmit={formik.handleSubmit}>
                   <div className="flex mt-6 flex-row flex-wrap gap-4">
@@ -151,10 +151,10 @@ const Investor = () => {
                     Warehouses
                   </h2>
                 </div>
-                <WarehouseTable
+               {warehouse && warehouse.length > 0 ? <WarehouseTable
                   tableBody={rows}
                   tableHeader={WarehouseHeader}
-                />
+                />: <div>No Data Found</div>}
 
                 <hr className="my-8" />
                 <div className="flex w-full justify-between md:flex-row flex-col">
@@ -162,10 +162,10 @@ const Investor = () => {
                     Items Quantity in Warehouse
                   </h2>
                 </div>
-                <WarehouseTable
+                {itemsInWarehouse && itemsInWarehouse.length > 0 ? <WarehouseTable
                   tableBody={itemsInWarehouse}
                   tableHeader={headers}
-                />
+                /> : <div>No Data Found</div>}
               </div>
             </div>
           </InnerLayOut>

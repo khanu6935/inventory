@@ -48,11 +48,13 @@ export const getSingleInventory = createAsyncThunk(
 
 export const deleteInventoryById = createAsyncThunk(
   "deleteInventory",
-  async (id:any) => {
+  async ({id,extra}:{id:any,extra:{action:()=>void}}) => {
+    const {action} = extra
     try {
       const response = await api.deleteInventory(id);
       const result = response.data;
       toast.success("Delete Inventory Successfully!");
+      action()
       return result;
     } catch (error) {
       toast.error("something went wrong");
